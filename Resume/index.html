@@ -1,0 +1,1729 @@
+<!-- @format -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keshaw Kumar Thakur - Resume</title>
+    <style>
+      /* ══════════════════════════════════════
+         BASE RESET & BODY
+         ══════════════════════════════════════ */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 16px;
+        color: #222;
+        background: #f0f0f0;
+      }
+
+      /* ══════════════════════════════════════
+         TOOLBAR  (hidden on print)
+         ══════════════════════════════════════ */
+      #resume-toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: #2e3a59;
+        color: #fff;
+        padding: 9px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 3px solid #4a90d9;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        flex-wrap: wrap;
+      }
+
+      .toolbar-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .toolbar-title {
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .toolbar-hint {
+        font-size: 10.5px;
+        color: #a0b8d0;
+        font-style: italic;
+        display: none;
+        white-space: nowrap;
+      }
+      body.edit-mode .toolbar-hint {
+        display: inline;
+      }
+
+      .toolbar-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .tbtn {
+        padding: 6px 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 11.5px;
+        font-weight: 600;
+        font-family: inherit;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      #editToggleBtn {
+        background: #4a90d9;
+        color: #fff;
+      }
+      #editToggleBtn:hover {
+        background: #357abd;
+      }
+      body.edit-mode #editToggleBtn {
+        background: #27ae60;
+      }
+      body.edit-mode #editToggleBtn:hover {
+        background: #1e8449;
+      }
+      #printBtn {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      #printBtn:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      #pdfBtn {
+        background: #e67e22;
+        color: #fff;
+      }
+      #pdfBtn:hover {
+        background: #d35400;
+      }
+
+      /* ══════════════════════════════════════
+         PAGE CONTAINER
+         ══════════════════════════════════════ */
+      .page {
+        width: 900px;
+        margin: 24px auto 40px;
+        background: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* ══════════════════════════════════════
+         HEADER
+         ══════════════════════════════════════ */
+      .header {
+        background: #2e3a59;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 10px 40px;
+        gap: 30px;
+        min-height: 140px;
+      }
+      .header-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+      .header-info h1 {
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .header-info p {
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-top: 6px;
+        color: #cdd5e0;
+      }
+
+      /* ══════════════════════════════════════
+         BODY / SIDEBAR / MAIN
+         ══════════════════════════════════════ */
+      .body {
+        display: flex;
+      }
+      .sidebar {
+        width: 260px;
+        flex-shrink: 0;
+        background: #eef0f4;
+        padding: 30px 25px;
+      }
+
+      .sidebar-section {
+        margin-bottom: 28px;
+      }
+      .sidebar-section h2 {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #2e3a59;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #2e3a59;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 11.5px;
+        color: #333;
+        word-break: break-all;
+      }
+      .contact-item .icon {
+        font-size: 12px;
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+
+      .skills-list {
+        list-style: disc;
+        padding-left: 16px;
+      }
+      .skills-list li {
+        margin-bottom: 5px;
+        font-size: 11.5px;
+        color: #333;
+      }
+      .sidebar-section p {
+        font-size: 11.5px;
+        color: #333;
+        line-height: 1.6;
+      }
+      .ref-name {
+        font-weight: 700;
+        font-size: 12px;
+        color: #2e3a59;
+      }
+
+      .edu-item {
+        margin-bottom: 12px;
+      }
+      .edu-item .edu-degree {
+        font-size: 12px;
+        font-weight: 700;
+        color: #2e3a59;
+      }
+      .edu-item .edu-field {
+        font-size: 11px;
+        color: #555;
+        margin-top: 2px;
+      }
+      .edu-item .edu-year {
+        font-size: 12px;
+        margin-top: 2px;
+      }
+
+      .main {
+        flex: 1;
+        padding: 30px 35px;
+      }
+
+      /* ── SECTIONS ── */
+      .section {
+        margin-bottom: 26px;
+        position: relative;
+      }
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .section-icon {
+        width: 32px;
+        height: 32px;
+        background: #2e3a59;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      .section-header h2 {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #2e3a59;
+        border-bottom: 2px solid #2e3a59;
+        flex: 1;
+        padding-bottom: 4px;
+      }
+
+      /* ── TIMELINE ── */
+      .timeline {
+        border-left: 2px solid #ccc;
+        margin-left: 16px;
+        padding-left: 20px;
+      }
+      .timeline-item {
+        position: relative;
+        margin-bottom: 16px;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -27px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid #2e3a59;
+        background: #fff;
+      }
+      .timeline-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+      }
+      .timeline-item-title {
+        font-weight: 700;
+        font-size: 13.5px;
+        color: #2e3a59;
+      }
+      .timeline-item-date {
+        font-size: 10.5px;
+        color: #777;
+        white-space: nowrap;
+      }
+      .timeline-item-tech {
+        font-size: 10.5px;
+        color: #888;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      .timeline-item ul {
+        list-style: disc;
+        padding-left: 16px;
+      }
+      .timeline-item ul li {
+        font-size: 14px;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 3px;
+        line-height: 1.55;
+        text-align: justify;
+      }
+
+      .profile-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        line-height: 1.5;
+        text-align: justify;
+        padding-left: 44px;
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        background: #2e3a59;
+        border-top: 3px solid #4a90d9;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 40px;
+      }
+      .footer-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .footer-divider {
+        width: 1px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .footer-contact {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .footer-contact span {
+        font-size: 11px;
+        color: #cdd5e0;
+        letter-spacing: 0.5px;
+      }
+
+      /* ══════════════════════════════════════
+         EDIT MODE — VISUAL INDICATORS
+         ══════════════════════════════════════ */
+
+      /* Highlight editable areas on hover */
+      body.edit-mode [contenteditable="true"] {
+        cursor: text;
+        border-radius: 2px;
+      }
+      body.edit-mode [contenteditable="true"]:hover {
+        outline: 1.5px dashed #4a90d9;
+        background: rgba(74, 144, 217, 0.04);
+      }
+      body.edit-mode [contenteditable="true"]:focus {
+        outline: 2px solid #4a90d9 !important;
+        background: rgba(74, 144, 217, 0.07) !important;
+      }
+
+      /* ── DELETE BULLET BUTTON (× at end of each list item) ── */
+      .del-btn {
+        display: none; /* hidden normally */
+        cursor: pointer;
+        color: #c0392b;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 0 4px;
+        border-radius: 50%;
+        margin-left: 4px;
+        vertical-align: middle;
+        line-height: 1;
+        user-select: none;
+        font-style: normal;
+      }
+      .del-btn:hover {
+        background: rgba(192, 57, 43, 0.1);
+        border-radius: 3px;
+      }
+      body.edit-mode .del-btn {
+        display: inline;
+      } /* visible in edit mode */
+
+      /* ── ADD ITEM ROW (appears below each editable list) ── */
+      .add-row {
+        display: none;
+        margin-top: 5px;
+      }
+      body.edit-mode .add-row {
+        display: block;
+      }
+
+      .add-btn {
+        background: none;
+        border: 1px dashed #4a90d9;
+        color: #4a90d9;
+        padding: 2px 10px;
+        font-size: 10.5px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 600;
+        transition: background 0.15s;
+      }
+      .add-btn:hover {
+        background: rgba(74, 144, 217, 0.08);
+      }
+
+      /* ══════════════════════════════════════
+         PRINT / PDF  —  CORRECT APPROACH
+         ══════════════════════════════════════ */
+      @page {
+        size: A4;
+        margin: 8mm 10mm;
+      }
+
+      @media print {
+        /* Force all background colours to print */
+        *,
+        *::before,
+        *::after {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+
+        html,
+        body {
+          background: #fff !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Hide everything that isn't the resume */
+        #resume-toolbar,
+        .del-btn,
+        .add-row {
+          display: none !important;
+        }
+
+        /* Reset page card for paper */
+        .page {
+          width: 100% !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+        }
+
+        .sidebar {
+          width: 260px !important;
+          flex-shrink: 0 !important;
+        }
+
+        /* Prevent ugly mid-section page breaks */
+        .timeline-item,
+        .sidebar-section,
+        .section,
+        .edu-item {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+        .header,
+        .footer {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+        .footer {
+          break-before: avoid !important;
+          page-break-before: avoid !important;
+        }
+      }
+    </style>
+
+    <!-- html2pdf for PDF download (requires internet) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <!-- ══════════════════════════════════════════════
+         TOOLBAR  (not printed)
+         ══════════════════════════════════════════════ -->
+    <div id="resume-toolbar">
+      <div class="toolbar-left">
+        <span class="toolbar-title">📄 Keshaw Kumar Thakur — Resume</span>
+        <span class="toolbar-hint"
+          >✏ Click any text to edit &nbsp;·&nbsp; Enter adds a new line inside
+          paragraphs &nbsp;·&nbsp; Use ＋ Add buttons for new bullet points
+          &nbsp;·&nbsp; Changes stay until the page is refreshed</span
+        >
+      </div>
+      <div class="toolbar-actions">
+        <button class="tbtn" id="editToggleBtn" onclick="toggleEditMode()">
+          ✏️ Edit Mode
+        </button>
+        <button class="tbtn" id="printBtn">🖨 Print</button>
+        <button class="tbtn" id="pdfBtn">⬇ Download PDF</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         RESUME PAGE
+         ══════════════════════════════════════════════ -->
+    <div class="page">
+      <!-- HEADER -->
+      <div class="header">
+        <img class="header-photo" src="keshawpic.jpg" alt="Profile Photo" />
+        <div class="header-info">
+          <h1>Keshaw Kumar Thakur</h1>
+          <p>Senior Software Engineer | .NET Developer</p>
+        </div>
+      </div>
+
+      <!-- BODY -->
+      <div class="body">
+        <!-- ══════ SIDEBAR ══════ -->
+        <div class="sidebar">
+          <!-- CONTACT -->
+          <div class="sidebar-section">
+            <h2>Contact</h2>
+            <div class="contact-item">
+              <span class="icon">📞</span>
+              <span class="contact-text">+91 7903771887 / +91 8521931728</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">✉️</span>
+              <span class="contact-text">keshawkumar707510@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">📍</span>
+              <span class="contact-text">Jaipur, Rajasthan, India</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">🔗</span>
+              <span class="contact-text"
+                >linkedin.com/in/keshaw-kumar-thakur-396627240</span
+              >
+            </div>
+            <div class="contact-item">
+              <span class="icon">🐙</span>
+              <span class="contact-text">github.com/git707510</span>
+            </div>
+          </div>
+
+          <!-- CORE COMPETENCIES -->
+          <div class="sidebar-section">
+            <h2>Core Competencies</h2>
+            <ul class="skills-list" id="list-competencies">
+              <li>
+                Backend Development<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                REST API Design<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Performance Optimization<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                System Integration<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Requirement Analysis<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Technical Documentation<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Client Communication<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Team Mentoring<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Problem Solving<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+            </ul>
+            <div class="add-row">
+              <button class="add-btn" onclick="addItem('list-competencies')">
+                ＋ Add item
+              </button>
+            </div>
+          </div>
+
+          <!-- SKILLS -->
+          <div class="sidebar-section">
+            <h2>Skills</h2>
+            <ul class="skills-list" id="list-skills">
+              <li>
+                C# / ASP.NET Core / MVC<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Web API / Minimal APIs<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Entity Framework Core<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                SQL Server / LINQ<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Angular / AngularJS<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                JWT / Role-Based Auth<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Clean Architecture<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Repository Pattern<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                SOLID Principles<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Docker / Kubernetes<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                GitHub Actions / CI/CD<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Stripe / Razorpay<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Amadeus / Sabre / Travelport<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Umbraco CMS<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                SignalR<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                RAG / Semantic Search<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Gemini API<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Postman / Git / IIS<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                .NET Framework 4.5 / 4.6 / 4.8<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                .NET 6<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                .NET 8<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                .NET 10<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                SQL Server 2019<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                SQL Server 2022<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                IMemoryCache<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                ILogger<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Swagger/OpenAPI<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                xUnit<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Windows Server Deployment<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                IIS Deployment<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                SSL Configuration<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Application Pool Configuration<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Docker<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                Kubernetes<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                GitHub Actions<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                SignalR<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+            </ul>
+            <div class="add-row">
+              <button class="add-btn" onclick="addItem('list-skills')">
+                ＋ Add skill
+              </button>
+            </div>
+          </div>
+
+          <!-- EDUCATION -->
+          <div class="sidebar-section">
+            <h2>Education</h2>
+            <div class="edu-item">
+              <div class="edu-degree">B.Tech – Mechanical Engineering</div>
+              <div class="edu-field">Bachelor of Technology</div>
+              <div class="edu-year">2014 – 2018</div>
+            </div>
+          </div>
+
+          <!-- LANGUAGES -->
+          <div class="sidebar-section">
+            <h2>Languages</h2>
+            <ul class="skills-list" id="list-languages">
+              <li>
+                Hindi (Native)<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+              <li>
+                English (Fluent)<span
+                  class="del-btn"
+                  contenteditable="false"
+                  onclick="delItem(this.parentElement)"
+                  >×</span
+                >
+              </li>
+            </ul>
+            <div class="add-row">
+              <button class="add-btn" onclick="addItem('list-languages')">
+                ＋ Add language
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end sidebar -->
+
+        <!-- ══════ MAIN ══════ -->
+        <div class="main">
+          <!-- PROFILE -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-icon">👤</div>
+              <h2>Profile</h2>
+            </div>
+            <p class="profile-text">
+              Senior .NET Developer with 4 years and 7 months of experience
+              designing, developing, and maintaining scalable, secure, and
+              high-performance web applications using ASP.NET Core, C#, Web API,
+              Entity Framework Core, SQL Server, Angular, and Umbraco CMS.
+              Experienced in building RESTful APIs, implementing authentication
+              and authorization mechanisms, integrating third-party APIs, and
+              delivering enterprise-grade solutions across Government ERP,
+              Healthcare, HRMS, E-Commerce, and Travel domains. Proficient in
+              Clean Architecture, SOLID principles, Repository Pattern, and
+              modern development practices. Hands-on experience with payment
+              gateway integrations, flight booking APIs, Docker, Kubernetes,
+              CI/CD pipelines, and AI-powered applications utilizing RAG,
+              semantic search, embeddings, and Gemini API.
+            </p>
+          </div>
+
+          <!-- WORK EXPERIENCE -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-icon">💼</div>
+              <h2>Work Experience</h2>
+            </div>
+            <div class="timeline">
+              <!-- Job 1 -->
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title"
+                    >Programmer | Dotsquares</span
+                  >
+                  <span class="timeline-item-date">Oct 2024 – Present</span>
+                </div>
+                <ul id="list-exp1">
+                  <li>
+                    Designed and maintained scalable Enterprise Management
+                    Systems (EMS) using ASP.NET Core and SQL Server.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Developed and maintained RESTful APIs with Entity Framework
+                    Core and Clean Architecture principles.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Integrated Amadeus, Sabre, and Travelport APIs for flight
+                    search and booking functionality.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Implemented secure payment gateway solutions using Stripe
+                    and Razorpay.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Customized and extended Umbraco CMS and Umbraco Commerce
+                    based solutions.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Implemented JWT authentication, refresh tokens, and
+                    role-based authorization.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Participated in Docker-based containerization and Kubernetes
+                    deployments.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Improved API response time by approximately 80% through
+                    query optimization and caching.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Mentored two junior developers and contributed to technical
+                    documentation.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-exp1')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+
+              <!-- Job 2 -->
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title"
+                    >Senior Software Engineer | Wipenex IT Pvt Ltd</span
+                  >
+                  <span class="timeline-item-date">Feb 2024 – Sep 2024</span>
+                </div>
+                <ul id="list-exp2">
+                  <li>
+                    Maintained and enhanced enterprise applications to ensure
+                    reliability and performance.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Participated in ERP planning and implementation
+                    activities.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Assisted junior developers and promoted coding best
+                    practices.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Contributed to requirement analysis, effort estimation, and
+                    release planning.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Improved maintainability by adopting SOLID principles and
+                    clean coding practices.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-exp2')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+
+              <!-- Job 3 -->
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title"
+                    >Assistant Software Engineer | Wipenex IT Pvt Ltd</span
+                  >
+                  <span class="timeline-item-date">Dec 2021 – Feb 2024</span>
+                </div>
+                <ul id="list-exp3">
+                  <li>
+                    Developed ERP modules using ASP.NET, AngularJS, and SQL
+                    Server.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Built dynamic user interfaces and implemented business logic
+                    for various modules.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Delivered Hospital ERP and Government ERP solutions to
+                    multiple clients.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Implemented secure payment gateway integrations.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Developed reporting modules with PDF and Excel export
+                    capabilities.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-exp3')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end Work Experience -->
+
+          <!-- PROJECTS -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-icon">🗂️</div>
+              <h2>Projects</h2>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title">Government ERP</span>
+                </div>
+                <div class="timeline-item-tech">
+                  ASP.NET · AngularJS · SQL Server
+                </div>
+                <ul id="list-proj1">
+                  <li>
+                    Developed Auction Management, Rent Collection, Banquet Hall
+                    Booking, Payment Gateway, and Reporting modules.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Implemented secure online transactions and reporting with
+                    PDF and Excel export support.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-proj1')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title">Hospital ERP</span>
+                </div>
+                <div class="timeline-item-tech">ASP.NET MVC · SQL Server</div>
+                <ul id="list-proj2">
+                  <li>
+                    Delivered OPD, IPD, Pharmacy, and Billing modules to
+                    multiple healthcare clients.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-proj2')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title"
+                    >Enterprise Management System (HRMS)</span
+                  >
+                </div>
+                <div class="timeline-item-tech">ASP.NET Core · SQL Server</div>
+                <ul id="list-proj3">
+                  <li>
+                    Developed Leave Management and Work From Home workflow
+                    modules.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Implemented automated permission updates and workflow
+                    improvements.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-proj3')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title">E-Commerce Platform</span>
+                </div>
+                <div class="timeline-item-tech">
+                  Umbraco CMS · Umbraco Commerce · Stripe
+                </div>
+                <ul id="list-proj4">
+                  <li>
+                    Customized e-commerce workflows and integrated secure
+                    payment processing.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-proj4')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title"
+                    >Flight API Integration Platform</span
+                  >
+                </div>
+                <div class="timeline-item-tech">ASP.NET Core · Web API</div>
+                <ul id="list-proj5">
+                  <li>
+                    Integrated Amadeus, Sabre, and Travelport APIs.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Developed a unified architecture for flight search and
+                    booking operations.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-proj5')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-item-header">
+                  <span class="timeline-item-title"
+                    >AI Knowledge Base Application</span
+                  >
+                </div>
+                <div class="timeline-item-tech">
+                  RAG • Semantic Search • Embeddings • Gemini API
+                </div>
+                <ul id="list-proj6">
+                  <li>
+                    Developed a document-driven knowledge base application using
+                    Retrieval-Augmented Generation (RAG).<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Enabled users to upload custom documents and retrieve
+                    contextual answers based on document knowledge.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Implemented semantic search and embeddings using Gemini
+                    API.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-proj6')">
+                    ＋ Add bullet
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end Projects -->
+
+          <!-- ACHIEVEMENTS -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-icon">🏆</div>
+              <h2>Achievements</h2>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <ul id="list-achieve">
+                  <li>
+                    Improved API response time by up to 80%.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Developed and maintained 50+ REST APIs.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Managed and optimized 100+ SQL Server tables.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Delivered solutions for 5+ clients.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Successfully delivered 5+ enterprise projects.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Developed 20+ modules.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Mentored 2 junior developers.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                  <li>
+                    Worked in teams of up to 4 members.<span
+                      class="del-btn"
+                      contenteditable="false"
+                      onclick="delItem(this.parentElement)"
+                      >×</span
+                    >
+                  </li>
+                </ul>
+                <div class="add-row">
+                  <button class="add-btn" onclick="addItem('list-achieve')">
+                    ＋ Add achievement
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end Achievements -->
+        </div>
+        <!-- end main -->
+      </div>
+      <!-- end body -->
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span class="footer-name">Keshaw Kumar Thakur</span>
+        <div class="footer-divider"></div>
+        <div class="footer-contact">
+          <span>📧 keshawkumar707510@gmail.com</span>
+          <span>📞 +91-7903771887</span>
+          <span>📍 India</span>
+        </div>
+      </div>
+    </div>
+    <!-- end .page -->
+
+    <!-- ══════════════════════════════════════════════
+         JAVASCRIPT
+         ══════════════════════════════════════════════ -->
+    <script>
+      /* ─── STATE ─── */
+      var editMode = false;
+
+      /* ─── SELECTORS for all editable text elements ─── */
+      var EDITABLE = [
+        ".header-info h1",
+        ".header-info p",
+        ".contact-text",
+        ".sidebar-section h2",
+        ".skills-list li",
+        ".edu-degree",
+        ".edu-field",
+        ".edu-year",
+        ".profile-text",
+        ".timeline-item-title",
+        ".timeline-item-date",
+        ".timeline-item-tech",
+        ".timeline-item ul li",
+        ".footer-name",
+        ".footer-contact span",
+      ].join(",");
+
+      /* ─── TOGGLE EDIT MODE ─── */
+      function toggleEditMode() {
+        editMode = !editMode;
+        document.body.classList.toggle("edit-mode", editMode);
+
+        var elements = document.querySelectorAll(EDITABLE);
+        elements.forEach(function (el) {
+          el.contentEditable = editMode ? "true" : "false";
+          /* Keep the × buttons non-editable even when inside an editable parent */
+          var delBtns = el.querySelectorAll(".del-btn");
+          delBtns.forEach(function (b) {
+            b.contentEditable = "false";
+          });
+        });
+
+        var btn = document.getElementById("editToggleBtn");
+        btn.textContent = editMode ? "✓ Done Editing" : "✏️ Edit Mode";
+      }
+
+      /* ─── DELETE A LIST ITEM ─── */
+      function delItem(li) {
+        li.remove();
+      }
+
+      /* ─── ADD A NEW LIST ITEM ─── */
+      function addItem(listId) {
+        var ul = document.getElementById(listId);
+        if (!ul) return;
+
+        var li = document.createElement("li");
+
+        /* text node the user will type into */
+        var txt = document.createTextNode("New item");
+        li.appendChild(txt);
+
+        /* × delete button — always non-editable */
+        var del = document.createElement("span");
+        del.className = "del-btn";
+        del.contentEditable = "false";
+        del.innerHTML = "&times;";
+        del.onclick = function () {
+          delItem(li);
+        };
+        li.appendChild(del);
+
+        /* if edit mode is already on, make the new li editable too */
+        if (editMode) li.contentEditable = "true";
+
+        ul.appendChild(li);
+
+        /* select the placeholder text so user can start typing immediately */
+        if (window.getSelection && document.createRange) {
+          var range = document.createRange();
+          range.selectNodeContents(li);
+          range.setEnd(li, 1); /* select only the text node, not the × span */
+          range.setStart(li, 0);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          li.focus();
+        }
+      }
+
+      /* ─── BLOCK ENTER IN SINGLE-LINE ELEMENTS ─── */
+      /* Enter inside a <li> or a single-line field would create unwanted line breaks.
+         For bullet lists, use the ＋ Add bullet button instead. */
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Enter") return;
+        var t = e.target;
+        if (!t || t.contentEditable !== "true") return;
+
+        var blockEnter = [
+          ".contact-text",
+          ".header-info h1",
+          ".header-info p",
+          ".sidebar-section h2",
+          ".timeline-item-title",
+          ".timeline-item-date",
+          ".timeline-item-tech",
+          ".edu-degree",
+          ".edu-field",
+          ".edu-year",
+          ".footer-name",
+          ".footer-contact span",
+        ];
+        var isSingle = blockEnter.some(function (s) {
+          return t.matches && t.matches(s);
+        });
+        /* Also block Enter in any <li> — new bullets come from the ＋ button */
+        if (isSingle || t.tagName === "LI") e.preventDefault();
+      });
+
+      /* ─── PRINT BUTTON ─── */
+      document
+        .getElementById("printBtn")
+        .addEventListener("click", function () {
+          window.print();
+        });
+
+      /* ─── PDF DOWNLOAD BUTTON ─── */
+      document.getElementById("pdfBtn").addEventListener("click", function () {
+        var resume = document.querySelector(".page");
+        if (!resume) {
+          alert("Resume section not found.");
+          return;
+        }
+
+        /* temporarily hide edit UI so it doesn't appear in PDF */
+        var toolbar = document.getElementById("resume-toolbar");
+        var delBtns = document.querySelectorAll(".del-btn");
+        var addRows = document.querySelectorAll(".add-row");
+
+        toolbar.style.display = "none";
+        delBtns.forEach(function (el) {
+          el.style.display = "none";
+        });
+        addRows.forEach(function (el) {
+          el.style.display = "none";
+        });
+
+        html2pdf()
+          .set({
+            filename: "Keshaw_Kumar_Thakur_Resume.pdf",
+            margin: 0,
+            image: { type: "jpeg", quality: 1 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+          })
+          .from(resume)
+          .save()
+          .then(function () {
+            /* restore after PDF is generated */
+            toolbar.style.display = "";
+            delBtns.forEach(function (el) {
+              el.style.display = "";
+            });
+            addRows.forEach(function (el) {
+              el.style.display = "";
+            });
+          });
+      });
+    </script>
+  </body>
+</html>
